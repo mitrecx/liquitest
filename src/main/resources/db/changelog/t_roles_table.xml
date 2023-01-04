@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+        <changeSet author="chenxing" id="create_t_roles_table">
+            <createTable remarks="角色表" tableName="t_roles">
+                <column name="id" type="VARCHAR(64)">
+                    <constraints primaryKey="true"/>
+                </column>
+                <column name="name" remarks="角色名" type="VARCHAR(64)"/>
+                <column name="desc" remarks="描述" type="text"/>
+                <column name="created_at" remarks="创建时间" type="BIGINT"/>
+                <column name="last_updated_at" remarks="更新时间" type="BIGINT"/>
+            </createTable>
+        </changeSet>
+
+    <changeSet id="update_t_roles_table_desc" author="chenxing">
+        <sql>ALTER TABLE t_roles CHANGE  `desc` description text</sql>
+    </changeSet>
+
+</databaseChangeLog>

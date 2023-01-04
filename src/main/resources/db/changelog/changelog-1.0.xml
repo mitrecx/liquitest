@@ -1,0 +1,21 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+        <changeSet author="chenxing" id="20200701-1">
+            <createTable remarks="测试" tableName="test_order">
+                <column name="id" type="VARCHAR(64)">
+                    <constraints primaryKey="true"/>
+                </column>
+                <column name="phone" remarks="电话号" type="VARCHAR(64)"/>
+                <column name="template_type" remarks="模板类型" type="VARCHAR(18)"/>
+                <column name="message" remarks="短信返回信息" type="VARCHAR(255)"/>
+                <column defaultValueComputed="CURRENT_TIMESTAMP" name="create_date" remarks="创建时间" type="datetime"/>
+                <column name="update_date" remarks="更新时间" type="datetime"/>
+            </createTable>
+        </changeSet>
+
+
+</databaseChangeLog>
