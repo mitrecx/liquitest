@@ -9,10 +9,9 @@ spring:
     password: 123456
   liquibase:
     enabled: true
-    change-log: /db/changelog/master.xml
+    change-log: classpath:/db/changelog/master.xml
     # contexts: dev, faker
-    database-change-log-lock-table: DATABASECHANGELOGLOCK
-    database-change-log-table: DATABASECHANGELOG
+
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

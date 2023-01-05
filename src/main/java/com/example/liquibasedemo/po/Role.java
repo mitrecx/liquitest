@@ -9,6 +9,8 @@ public class Role {
 
     private Long lastUpdatedAt;
 
+    private String test1;
+
     private String description;
 
     public String getId() {
@@ -41,6 +43,14 @@ public class Role {
 
     public void setLastUpdatedAt(Long lastUpdatedAt) {
         this.lastUpdatedAt = lastUpdatedAt;
+    }
+
+    public String getTest1() {
+        return test1;
+    }
+
+    public void setTest1(String test1) {
+        this.test1 = test1 == null ? null : test1.trim();
     }
 
     public String getDescription() {
