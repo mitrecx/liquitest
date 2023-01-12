@@ -25,5 +25,5 @@ mybatis:
 #    offsetAsPageNum: true
 #    rowBoundsWithCount: true
 #    reasonable: true
-debug: true
+#debug: true
 
