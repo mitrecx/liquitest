@@ -21,7 +21,9 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
-
-
-
+#  configuration-properties:
+#    offsetAsPageNum: true
+#    rowBoundsWithCount: true
+#    reasonable: true
+debug: true
 

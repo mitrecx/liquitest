@@ -3,6 +3,8 @@ package com.example.liquibasedemo.mapper;
 import com.example.liquibasedemo.po.Role;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface RoleMapper {
     int deleteByPrimaryKey(String id);
@@ -12,6 +14,8 @@ public interface RoleMapper {
     int insertSelective(Role record);
 
     Role selectByPrimaryKey(String id);
+
+    List<Role> selectAll();
 
     int updateByPrimaryKeySelective(Role record);
 

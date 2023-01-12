@@ -5,6 +5,7 @@
 <mapper namespace="com.example.liquibasedemo.mapper.UserMapper">
     <insert id="insert" parameterType="com.example.liquibasedemo.po.User">
         insert into t_users(id, username, password, email, age, salary, created_at, last_updated_at)
-        values (#{id}, #{username}, #{password}, #{email}, #{age}, #{salary}, #{createdAt}, #{lastUpdatedAt});
+        values (#{id}, #{username}, #{password}, #{email}, #{age}, #{salary}, #{createdAt}, #{lastUpdatedAt})
+<foreach collection="list" index="index"></foreach>
     </insert>
 </mapper>
