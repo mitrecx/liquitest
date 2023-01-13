@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class TimeFormatUtil {
     public static final ZoneId ZONE_ID_UTC = ZoneId.of("UTC");
@@ -16,6 +17,7 @@ public class TimeFormatUtil {
 
     public static String timeInCST(long millis, DateTimeFormatter formatter) {
         ZonedDateTime cst = ZonedDateTime.ofInstant(Instant.ofEpochMilli(millis), ZONE_ID_CST);
+        Date date  = new Date();
         return formatter.format(cst);
     }
     public static String timeInUTC(long millis, DateTimeFormatter formatter) {

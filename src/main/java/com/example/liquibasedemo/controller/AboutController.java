@@ -7,12 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.format.DateTimeFormatter;
-import java.util.Properties;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Api(tags = "about")
@@ -32,20 +29,14 @@ public class AboutController {
         version.put("version", build.getVersion());
         version.put("buildNumber", build.getBuildNumber());
         version.put("branch", build.getBranch());
-        version.put("builtAt", TimeFormatUtil.timeInCST(
-                ConfigUtil.parseLongOr(build.getTimestamp(), 0),
-                TimeFormatUtil.DEFAULT_FORMATTER));
 
-        version.put("builtAt2", TimeFormatUtil.timeInUTC(
-                ConfigUtil.parseLongOr(build.getTimestamp(), 0),
-                TimeFormatUtil.DEFAULT_FORMATTER));
+        version.put("builtAt",
+                TimeFormatUtil.timeInCST(ConfigUtil.parseLongOr(build.getTimestamp(), 0), TimeFormatUtil.DEFAULT_FORMATTER));
 
         ObjectNode r = om.createObjectNode();
         r.set("version", version);
-        // r.put("env", EnvironUtils.isDogfood() ? "dogfood" : "prod");
-
-        r.put("upTime", ConfigUtil.millisToDuration(
-                System.currentTimeMillis() - startTime));
+        String upTime = ConfigUtil.millisToDuration(System.currentTimeMillis() - startTime);
+        r.put("upTime", upTime);
         return r;
     }
 }
